@@ -19,6 +19,12 @@ class LinkedList
     @head = Node.new(value, @head)
   end
 
+  def length
+    node_count = 0
+    self.each { |node| node_count += 1 }
+    node_count
+  end
+
   def to_s
     as_string = "LinkedList("
     self.each do |node|
@@ -35,5 +41,27 @@ class LinkedList
       return nil if @node.nil?
     end
     @node
+  end
+
+  def insert(index, value)
+    if index == 0
+      self.prepend(value)
+    elsif index == (self.length)
+      self[self.length - 1].next_node = Node.new(value)
+    else
+      @previous_node = self[index - 1]
+      @next_node = self[index]
+      @previous_node.next_node = Node.new(value, @next_node)
+    end
+  end
+
+  def remove(index)
+    if self[index] == @head
+      @head = self[1]
+    else
+      @previous_node = self[index - 1]
+      @next_node = self[index + 1]
+      @previous_node.next_node = @next_node
+    end
   end
 end

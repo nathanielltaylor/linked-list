@@ -1,0 +1,8 @@
+---
+title: "Linked List Challenge"
+type: "challenge"
+visibility: "assign"
+description: "Use Ruby classes to create a Linked List implementation"
+tags: "data-structures, computer-science, linked-lists"
+ignore:
+- "linked-list-challenge.md"
